@@ -1,0 +1,14 @@
+[Unit]
+Description=Flipkart Sentiment Analysis - Streamlit App
+After=network.target
+
+[Service]
+User=ubuntu
+WorkingDirectory=/home/ubuntu/flipkart-sentiment
+ExecStart=/home/ubuntu/flipkart-sentiment/venv/bin/streamlit run app.py --server.port 8501 --server.address 0.0.0.0 --server.headless true
+Restart=always
+RestartSec=5
+Environment=PYTHONPATH=/home/ubuntu/flipkart-sentiment
+
+[Install]
+WantedBy=multi-user.target
